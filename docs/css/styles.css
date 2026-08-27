@@ -74,9 +74,9 @@ svg {
   opacity: 1;  transform: translateY(0)}
 .revelar-delay-1 { --revelar-delay: 0ms }
 .revelar-delay-2 { --revelar-delay: 650ms }
-.revelar-delay-3 { --revelar-delay: 1300ms }
-.revelar-delay-4 { --revelar-delay: 1950ms }
-.revelar-delay-5 { --revelar-delay: 2600ms }
+.revelar-delay-3 { --revelar-delay: 0ms }
+.revelar-delay-4 { --revelar-delay: 300ms }
+.revelar-delay-5 { --revelar-delay: 600ms }
 .servicios-grid > .revelar {
   opacity: 0;  transform: scale(.975);  transform-origin: center;  transition: opacity .78s ease-out var(--revelar-delay,0s),transform .78s cubic-bezier(.22,1,.36,1) var(--revelar-delay,0s);  will-change: opacity,transform}
 .servicios-grid > .revelar.visible {
