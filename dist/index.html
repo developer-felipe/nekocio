@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Presencia digital para negocios locales: landing page, carta digital, Google Maps y producción audiovisual en una sola solución.">
+  <meta name="theme-color" content="#0B0B0D">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <title>Nekocio - Presencia digital</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="cabecera" id="cabecera">
+    <div class="contenedor navegacion">
+      <a class="marca" href="#inicio" aria-label="Nekocio, volver al inicio">
+        <!-- Reemplaza logo-navbar.png por el PNG transparente definitivo del logotipo. -->
+        <img class="marca-logo" src="images/logo.png" alt="" aria-hidden="true">
+        <span class="marca-texto">
+          <strong>Nekocio</strong>
+          <small>Presencia digital</small>
+        </span>
+      </a>
+
+      <nav class="nav-enlaces" id="menu-principal" aria-label="Navegación principal">
+        <a href="#servicios">Servicios</a>
+        <a href="#control">Autogestión</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <button class="menu-boton" type="button" aria-label="Abrir menú" aria-controls="menu-principal" aria-expanded="false">
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="contenedor hero-grid">
+        <div class="hero-copy revelar">
+          <div class="hero-kicker">
+            Presencia digital para negocios locales
+          </div>
+
+          <h1>
+            No basta con estar.
+            Hay que <span class="degradado">ser elegido.</span>
+          </h1>
+
+          <p class="hero-bajada">
+            Diseñamos una presencia digital coherente para que tu negocio aparezca, se entienda y genere confianza:
+          </p>
+
+          <div class="hero-pilares" aria-label="Servicios principales">
+            <span>Mayor alcance en Google Maps</span>
+            <span>Página Web y carta gastronomica</span>
+            <span>Fotografía de espacios</span>
+            <span>Reseña NFC</span>
+            <span>Carta QR</span>
+          </div>
+
+          <div class="hero-acciones">
+            <a class="boton boton-primario" href="#contacto" data-magnetico>
+              Revisar mi negocio
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-escena" data-escena-3d role="img" aria-label="Composición tridimensional con un maneki-neko y tarjetas de Google Maps, landing page, carta digital y producción audiovisual">
+          <div class="escena-rig">
+            <div class="escena-anillo" aria-hidden="true"></div>
+            <div class="escena-halo" aria-hidden="true"></div>
+
+            <div class="maneki-capsula" aria-hidden="true">
+              <img
+                class="maneki-img"
+                src="images/maneki-neko.png"
+                width="1254"
+                height="1254"
+                alt=""
+                decoding="async"
+                fetchpriority="high"
+                draggable="false"
+              >
+            </div>
+
+            <div class="tarjeta-orbita mapa" aria-hidden="true">
+              <small>Google Maps</small>
+              <strong>Tu negocio bien configurado</strong>
+              <div class="mapa-mini"><span class="pin-mini"></span></div>
+            </div>
+
+            <div class="tarjeta-orbita web" aria-hidden="true">
+              <small>Landing page</small>
+              <strong>Una experiencia propia</strong>
+              <div class="browser-mini">
+                <div class="browser-mini-barra"><i></i><i></i><i></i></div>
+                <div class="browser-mini-cuerpo"><b></b><span></span></div>
+              </div>
+            </div>
+
+            <div class="tarjeta-orbita camara" aria-hidden="true">
+              <small>Audiovisual</small>
+              <strong>Escenas que venden</strong>
+              <div class="camara-mini"><span class="lente-mini"></span><span>REC ●</span></div>
+            </div>
+
+            <div class="tarjeta-orbita menu" aria-hidden="true">
+              <small>Carta digital</small>
+              <strong>Siempre actualizada</strong>
+              <div class="menu-mini">
+                <p><span>Especialidad</span><span>$12.900</span></p>
+                <p><span>Cóctel de autor</span><span>$7.500</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion seccion-clara" id="problema">
+      <div class="contenedor">
+        <div class="encabezado-dividido">
+          <div>
+            <p class="etiqueta">El problema real</p>
+            <h2 class="titulo-seccion">Tu negocio puede ser excelente y seguir siendo <strong>invisible.</strong></h2>
+          </div>
+          <p class="bajada-seccion">
+            La decisión ocurre antes de que el cliente cruce la puerta. Lo que encuentra en Google, las imágenes que ve y la facilidad para entender tu oferta definen si te elige o sigue buscando.
+          </p>
+        </div>
+
+        <div class="problemas-grid">
+          <article class="problema-card" data-inclinacion="6">
+            <div class="problema-numero"><span>01 · DESCUBRIMIENTO</span><b>見</b></div>
+            <h3>No apareces donde te están buscando.</h3>
+            <p>Si en Google no tienes publicado tu negocio o no estás bien posicionado, los clientes no te encontrarán.</p>
+            <span class="problema-onda" aria-hidden="true"></span>
+          </article>
+
+          <article class="problema-card" data-inclinacion="6">
+            <div class="problema-numero"><span>02 · PERCEPCIÓN</span><b>印</b></div>
+            <h3>Tu imagen digital no representa tu calidad real.</h3>
+            <p>Fotografías improvisadas, escenas sin dirección y piezas desconectadas hacen que un buen negocio parezca uno más.</p>
+            <span class="problema-onda" aria-hidden="true"></span>
+          </article>
+
+          <article class="problema-card" data-inclinacion="6">
+            <div class="problema-numero"><span>03 · CONVERSIÓN</span><b>選</b></div>
+            <h3>Tu negocio también funciona en digital.</h3>
+            <p>Google Maps optimizado, carta digital autogestionable, fotografía de ambiente y soportes QR/NFC conectan la experiencia del local con el entorno digital.</p>
+            <span class="problema-onda" aria-hidden="true"></span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion seccion-oscura servicios-fondo" id="servicios">
+      <div class="contenedor">
+        <div class="servicios-cabecera revelar">
+          <div>
+            <p class="etiqueta">Sistema de presencia</p>
+            <h2 class="titulo-seccion">Una identidad. <br><strong>Cinco puntos de contacto.</strong></h2>
+          </div>
+        </div>
+
+        <div class="servicios-grid">
+          <div class="revelar revelar-delay-1" data-col="6" data-col-md="6">
+          <article class="servicio-card google" data-inclinacion="5">
+            <div class="servicio-top">
+              <span class="servicio-indice">01 · Google Maps</span>
+              <span class="servicio-icono" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5.2 7-12A7 7 0 1 0 5 9c0 6.8 7 12 7 12Z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.8"/></svg>
+              </span>
+            </div>
+            <div class="servicio-visual servicio-visual--google" aria-hidden="true">
+              <div class="maps-ui">
+                <div class="maps-ui__listing">
+                  <div class="maps-ui__thumb">
+                    <img src="images/restaurant-thumb.jpg" alt="" loading="lazy">
+                  </div>
+
+                  <div class="maps-ui__content">
+                    <strong>Tu negocio</strong>
+                    <small><b>4.6</b> <span class="maps-ui__stars">★★★★★</span> · 128 reseñas · <span class="maps-ui__open">Abierto</span></small>
+
+                    <div class="maps-ui__details">
+                      <div class="maps-ui__info-line">
+                        <span class="maps-ui__info-icon maps-ui__info-icon--clock" aria-hidden="true">
+                          <svg class="maps-ui__info-svg" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="8" stroke-width="2"></circle>
+                            <path d="M12 7.5V12L15 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                          </svg>
+                        </span>
+                        <span><span class="maps-ui__info-accent">Abierto</span> · Cierra a las 09:30 p.m.</span>
+                      </div>
+
+                      <div class="maps-ui__info-line">
+                        <span class="maps-ui__info-icon maps-ui__info-icon--check" aria-hidden="true">
+                          <svg class="maps-ui__info-svg" viewBox="0 0 24 24" fill="none">
+                            <path d="M6.5 12.5L10.2 16L17.5 8.5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+                          </svg>
+                        </span>
+                        <span>Comidas en hora feliz · Buenos cócteles · Opciones veganas</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="maps-ui__actions">
+                    <span class="maps-ui__action maps-ui__action--call">
+                      <svg class="maps-ui__action-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M7.4 3.8 5.2 5.2c-.7.5-1 1.4-.7 2.2 1.7 5.5 6 9.8 11.5 11.5.8.3 1.7 0 2.2-.7l1.4-2.2c.4-.7.3-1.6-.3-2.1l-2.4-2c-.6-.5-1.4-.5-2 0l-1.3 1c-1.8-.9-3.2-2.3-4.1-4.1l1-1.3c.5-.6.5-1.4 0-2l-2-2.4c-.5-.6-1.4-.7-2.1-.3Z" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                      Llamar
+                    </span>
+                    <span class="maps-ui__action maps-ui__action--menu">
+                      <svg class="maps-ui__action-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <rect x="5" y="3.5" width="14" height="17" rx="2.2" stroke-width="1.8"></rect>
+                        <path d="M8.5 8h7M8.5 12h7M8.5 16h4.5" stroke-width="1.8" stroke-linecap="round"></path>
+                      </svg>
+                      Ver menú
+                    </span>
+                    <span class="maps-ui__action maps-ui__action--web">
+                      <svg class="maps-ui__action-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <circle cx="12" cy="12" r="8.5" stroke-width="1.8"></circle>
+                        <path d="M3.8 12h16.4M12 3.5c2.1 2.3 3.2 5.1 3.2 8.5S14.1 18.2 12 20.5M12 3.5C9.9 5.8 8.8 8.6 8.8 12s1.1 6.2 3.2 8.5" stroke-width="1.8" stroke-linecap="round"></path>
+                      </svg>
+                      Sitio web
+                    </span>
+                  </div>
+                </div>
+
+                <div class="maps-ui__map">
+<svg class="maps-ui__map-svg" viewBox="0 0 360 360" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="pin-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="3" stdDeviation="2.5" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="360" height="360" class="bg-land" />
+
+  <path class="bg-park" d="M -10,-10 H 140 V 100 H -10 Z M 210,240 H 370 V 370 H 210 Z" />
+  <path class="bg-water" d="M 280,-10 C 280,80 270,140 370,210 V -10 Z" />
+
+  <g id="road-borders">
+    <path class="road-base road-border size-sec-border" d="M -20,70 L 380,70" />
+    <path class="road-base road-border size-sec-border" d="M -20,290 L 380,290" />
+    <path class="road-base road-border size-sec-border" d="M 80,-20 L 80,380" />
+    <path class="road-base road-border size-sec-border" d="M 260,-20 L 260,380" />
+    <path class="road-base road-border size-main-border" d="M -20,200 L 180,200 L 270,110 L 380,110" />
+  </g>
+
+  <g id="road-fills">
+    <path class="road-base road-fill size-sec-fill" d="M -20,70 L 380,70" />
+    <path class="road-base road-fill size-sec-fill" d="M -20,290 L 380,290" />
+    <path class="road-base road-fill size-sec-fill" d="M 80,-20 L 80,380" />
+    <path class="road-base road-fill size-sec-fill" d="M 260,-20 L 260,380" />
+    <path class="road-base road-fill size-main-fill" d="M -20,200 L 180,200 L 270,110 L 380,110" />
+  </g>
+
+  <g id="route">
+    <path class="route-border" d="M 80,200 L 180,200 L 265,115" />
+    <path class="route-fill" d="M 80,200 L 180,200 L 265,115" />
+  </g>
+
+  <g id="origin-marker">
+    <circle class="origin-outer" cx="80" cy="200" r="10" />
+    <circle class="origin-inner" cx="80" cy="200" r="4.5" />
+  </g>
+
+  <g id="destination-marker" transform="translate(265, 115)" filter="url(#pin-shadow)">
+    <path class="destination-pin" d="M 0,0 C -7,-7 -12,-14 -12,-20 C -12,-27 -7,-32 0,-32 C 7,-32 12,-27 12,-20 C 12,-14 7,-7 0,0 Z"/>
+    <circle class="destination-dot" cx="0" cy="-20" r="4.5" />
+  </g>
+</svg>
+                </div>
+              </div>
+            </div>
+            <div class="servicio-copy">
+              <h3>Que te encuentren con información completa y coherente.</h3>
+              <p> Creamos u optimizamos tu Perfil de Negocio en Google Maps para mejorar la visibilidad de tu local y facilitar que tus clientes encuentren toda la información que necesitan. </p>
+            </div>
+                    </article>
+        </div>
+
+          <div class="revelar revelar-delay-2" data-col="6" data-col-md="6">
+          <article class="servicio-card landing" data-inclinacion="5">
+            <div class="servicio-top">
+              <span class="servicio-indice">02 · Landing page</span>
+              <span class="servicio-icono" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 8h18M7 6h.01M10 6h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </span>
+            </div>
+            <div class="servicio-visual servicio-visual--ancha" aria-hidden="true">
+              <div class="visual-landing">
+                <div class="ventana-web">
+                  <div class="ventana-barra"><i></i><i></i><i></i></div>
+                  <div class="ventana-contenido"><b>Una página que se entiende y se recuerda.</b></div>
+                </div>
+              </div>
+            </div>
+            <div class="servicio-copy">
+              <h3>Una página propia que convierte atención en acción.</h3>
+              <p>Creamos una landing page sencilla y adaptada a tu negocio para contar quién eres, cómo nace el proyecto, qué hace especial al local y qué experiencia pueden esperar tus clientes.</p>
+            </div>
+                    </article>
+        </div>
+
+          <div class="revelar revelar-delay-3" data-col="4" data-col-md="6">
+          <article class="servicio-card carta" data-inclinacion="6">
+            <div class="servicio-top">
+              <span class="servicio-indice">03 · Carta digital</span>
+              <span class="servicio-icono" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="6" y="2.5" width="12" height="19" rx="2.2" stroke="currentColor" stroke-width="1.8"/><path d="M9 7h6M9 11h6M9 15h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </span>
+            </div>
+            <div class="servicio-visual servicio-visual--carta" aria-hidden="true">
+              <div class="menu-editor">
+                <div class="menu-editor__head">
+                  <div class="menu-editor__title">
+                    <small>Carta digital</small>
+                    <strong>Menú de la casa</strong>
+                  </div>
+                  <span class="menu-editor__status"><i></i> Editable</span>
+                </div>
+
+                <div class="menu-editor__tabs">
+                  <span>Especialidades</span>
+                  <span>Entradas</span>
+                  <span>Bebidas</span>
+                  <span>Postres</span>
+                </div>
+
+                <div class="menu-editor__list">
+                  <article class="menu-editor__item">
+                    <span class="menu-editor__thumb"><img src="images/ramen-thumb.jpg" alt="" loading="lazy"></span>
+                    <div class="menu-editor__item-copy">
+                      <b>Ramen de la casa</b>
+                      <small>Disponible · imagen publicada</small>
+                    </div>
+                    <div class="menu-editor__price">
+                      <span>$9.900</span>
+                      <span class="menu-editor__edit">Editar</span>
+                    </div>
+                  </article>
+
+                  <article class="menu-editor__item">
+                    <span class="menu-editor__thumb alt"><img src="images/gyozas-thumb.jpg" alt="" loading="lazy"></span>
+                    <div class="menu-editor__item-copy">
+                      <b>Gyosas artesanales</b>
+                      <small>Disponible · stock actualizado</small>
+                    </div>
+                    <div class="menu-editor__price">
+                      <span>$4.500</span>
+                      <span class="menu-editor__edit">Editar</span>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="menu-editor__toolbar">
+                  <strong>Agregar producto</strong>
+                  <span>Precios · imágenes · disponibilidad</span>
+                </div>
+              </div>
+            </div>
+            <div class="escamas-carta" aria-hidden="true"></div>
+            <div class="servicio-copy">
+              <h3>Contenido editable sin depender de una reimpresión.</h3>
+              <p>Gestiona tu carta digital en tiempo real: categorías, productos, imágenes, precios y disponibilidad, directamente desde el celular.</p>
+            </div>
+                    </article>
+        </div>
+
+          <div class="revelar revelar-delay-4" data-col="4" data-col-md="6">
+          <article class="servicio-card audiovisual" data-inclinacion="6">
+            <div class="servicio-top">
+              <span class="servicio-indice">04 · Fotografía de Espacios</span>
+              <span class="servicio-icono" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="14" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="m17 10 4-2v8l-4-2v-4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+            <div class="servicio-visual servicio-visual--camara" aria-hidden="true">
+              <div class="visual-camara">
+                <div class="lente-grande"></div>
+                <span class="rec-indicador">REC</span>
+              </div>
+            </div>
+            <div class="servicio-copy">
+              <h3>Imágenes dirigidas para mostrar por qué elegirte.</h3>
+              <p>Fotografías de los espacios del local, cuidadosamente ambientadas para potenciar su atractivo visual, incluyendo mesas, platos y elementos decorativos que complementen la composición.</p>
+            </div>
+                    </article>
+        </div>
+
+          <div class="revelar revelar-delay-5" data-col="4" data-col-md="12">
+          <article class="servicio-card reputacion" data-inclinacion="6">
+            <div class="servicio-top">
+              <span class="servicio-indice">05 · Reputación</span>
+              <span class="servicio-icono" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5 14.6 9l6 .7-4.4 4 1.2 5.8L12 16.6l-5.4 2.9 1.2-5.8-4.4-4 6-.7L12 3.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+            <div class="servicio-visual servicio-visual--reputacion" aria-hidden="true">
+              <div class="visual-reputacion">
+                <div class="resenas-grid">
+                  <div class="resena-burbuja">
+                    <span class="resena-avatar">M</span>
+                    <div class="resena-meta">
+                      <b>María P.</b>
+                      <small>Google</small>
+                    </div>
+                    <div class="estrellas">★★★★★</div>
+                    <p>La información estaba clara y fue muy fácil llegar al local.</p>
+                  </div>
+
+                  <div class="resena-burbuja">
+                    <span class="resena-avatar">D</span>
+                    <div class="resena-meta">
+                      <b>Diego R.</b>
+                      <small>Google</small>
+                    </div>
+                    <div class="estrellas" aria-label="4 de 5 estrellas">★★★★☆</div>
+                    <p>Las fotos muestran tal cual la experiencia. Muy recomendado.</p>
+                  </div>
+
+                  <div class="resena-burbuja">
+                    <span class="resena-avatar">C</span>
+                    <div class="resena-meta">
+                      <b>Camila S.</b>
+                      <small>Google</small>
+                    </div>
+                    <div class="estrellas">★★★★★</div>
+                    <p>Encontré la carta al tiro y pude revisar todo antes de ir.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="servicio-copy">
+              <h3>Menos fricción para obtener reseñas reales.</h3>
+              <p>Facilitamos el acceso a tu carta digital mediante QR en mesa y utilizamos tecnología NFC para dirigir a tus clientes directamente a tu perfil de Google, haciendo más simple y natural el proceso de dejar una reseña.</p>
+            </div>
+                    </article>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion control-continuacion" id="control">
+      <div class="contenedor control-grid">
+        <div class="control-copy revelar">
+          <p class="etiqueta">Autogestión real</p>
+          <h2 class="control-titulo-manifiesto"><em>No diseñamos piezas aisladas.</em></h2>
+          <p class="bajada-seccion">
+            Gestiona tu carta gastronómica en tiempo real desde un mismo lugar. Crea categorías y productos, actualiza sus precios, imágenes y disponibilidad, podrás configurar los accesos de tus colaboradores según sus funciones.
+          </p>
+
+          <div class="control-lista">
+            <article class="control-item">
+              <span>01</span>
+              <div><h3>Actualiza tu carta</h3><p>Crea, edita o elimina categorías y productos. Modifica precios, imágenes y contenido cuando lo necesites..</p></div>
+            </article>
+            <article class="control-item">
+              <span>02</span>
+              <div><h3>Gestionar disponibilidad</h3><p>Controla qué productos están disponibles y comunícalo con estados como “Sin stock”, “Se va pronto” o “Próximamente”.</p></div>
+            </article>
+            <article class="control-item">
+              <span>03</span>
+              <div><h3>Asigna accesos según el rol de cada usuario</h3><p>Permite que cada persona pueda gestionar únicamente lo que le corresponde.</p></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="panel-3d revelar" data-panel-3d role="img" aria-label="Panel tridimensional de administración para carta digital, landing page y Google">
+          <div class="panel-rig">
+            <div class="panel-app" aria-hidden="true">
+              <aside class="panel-lateral">
+                <div class="panel-logo"><i>招</i><span>Nekocio</span></div>
+                <div class="panel-nav">
+                  <span class="activo">Resumen</span>
+                  <span>Categorías</span>
+                  <span>Productos</span>
+                  <span>Usuarios</span>
+                </div>
+              </aside>
+              <div class="panel-contenido">
+                <div class="panel-cabecera"><strong>Tú negocio</strong></div>
+                <div class="panel-resumen">
+                  <article><small>Carta</small><b>54 productos</b></article>
+                  <article><small>Carta</small><b>12 categorías</b></article>
+                  <article><small>Usuarios</small><b>4 colaboradores</b></article>
+                </div>
+                <div class="panel-tabla">
+                  <div class="panel-tabla-linea"><span>Nombre</span><span>Categoría</span><span>Acción</span></div>
+                  <div class="panel-tabla-linea"><span>Especialidad de la casa</span><span>Almuerzos</span><span>Editar</span></div>
+                  <div class="panel-tabla-linea"><span>Cóctel de autor</span><span>Coctelería</span><span>Editar</span></div>
+                  <div class="panel-tabla-linea"><span>Paella</span><span>Menú día Lunes</span><span>Editar</span></div>
+                  <div class="panel-tabla-linea"><span>Ossobuco</span><span>Menú día Viernes</span><span>Editar</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-flotante edicion" aria-hidden="true">
+              <small>Edición rápida</small>
+              <b>Carta actualizable</b>
+              <p>Nuevas categorías, nuevos productos y actualización de precios sin complicaciones.</p>
+            </div>
+
+            <div class="panel-flotante google">
+              <small>Demo interactiva</small>
+              <b>Prueba con una demo gratuita</b>
+              <p>Explora una demo y revisa nuestro servicio de gestión de carta digital.</p>
+              <span class="panel-demo-boton" aria-disabled="true">
+                Probar demo
+                <span class="panel-demo-boton__proximamente" aria-hidden="true">Próximamente</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion seccion-oscura" id="proceso">
+      <div class="contenedor proceso-grid">
+        <div class="proceso-fijo revelar">
+          <p class="etiqueta">Proceso de trabajo</p>
+          <h2 class="titulo-seccion">Del local a una presencia digital <strong>lista para crecer.</strong></h2>
+          <p class="bajada-seccion">Organizamos cada etapa para que tu negocio se vea bien, sea fácil de encontrar y cuente con herramientas digitales que puedas seguir gestionando en el día a día.</p>
+        </div>
+
+        <div class="proceso-pasos">
+          <article class="paso revelar">
+            <div class="paso-numero">01</div>
+            <div class="paso-contenido"><small>PRESENCIA EN GOOGLE</small><h3>Hacemos que te encuentren.</h3><p>Creamos u optimizamos tu Perfil de Negocio en Google Maps, completando información, servicios y atributos para que tus clientes encuentren fácilmente lo que necesitan.</p></div>
+          </article>
+
+          <article class="paso revelar">
+            <div class="paso-numero">02</div>
+            <div class="paso-contenido"><small>DIRECCIÓN</small><h3>Definimos una línea visual y comercial.</h3><p>Organizamos la historia, los espacios, los servicios y el contenido necesario para construir una presencia digital clara y coherente con la experiencia del local.</p></div>
+          </article>
+
+          <article class="paso revelar">
+            <div class="paso-numero">03</div>
+            <div class="paso-contenido"><small>PRODUCCIÓN</small><h3>Mostramos el negocio como merece verse.</h3><p>Preparamos y fotografiamos espacios, ambientes, mesas y detalles para crear material visual pensado para Google, la landing y tus canales digitales.</p></div>
+          </article>
+
+          <article class="paso revelar">
+            <div class="paso-numero">04</div>
+            <div class="paso-contenido"><small>CONSTRUCCIÓN</small><h3>Conectamos todas las piezas.</h3><p>Creamos la landing y la carta digital, integramos Google Maps y preparamos los accesos mediante QR y NFC para conectar la experiencia física con la digital.</p></div>
+          </article>
+
+          <article class="paso revelar">
+            <div class="paso-numero">05</div>
+            <div class="paso-contenido"><small>PUBLICACIÓN</small><h3>Llegar y usar</h3><p>Probamos la experiencia, revisamos enlaces y te entregamos el control de la carta para que puedas actualizar productos, precios y disponibilidad.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="contacto" id="contacto">
+    <div class="contenedor">
+      <div class="contacto-panel revelar">
+        <img class="contacto-logo" src="images/simbolo.png" alt="" aria-hidden="true">
+        <h2>Haz que tu negocio <span>invite a entrar.</span></h2>
+        <p>Revisamos cómo se presenta hoy tu negocio en digital y definimos las piezas necesarias para mejorar su visibilidad, transmitir mejor su propuesta y facilitar que tus clientes encuentren, consulten e interactúen con tu negocio.</p>
+
+        <div class="contacto-acciones">
+          <a class="boton boton-oscuro"  data-magnetico>
+            Solicitar evaluación
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="boton boton-secundario" href="https://wa.me/" data-magnetico>Conversar por WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="pie">
+        <a class="marca" href="#inicio">
+          <img class="marca-logo" src="images/cascabel.png" alt="" aria-hidden="true">
+        </a>
+        <p>© 2026 · Presencia digital para negocios locales</p>
+        <div class="pie-enlaces">
+          <a href="#servicios">Servicios</a>
+          <a href="#proceso">Proceso</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
