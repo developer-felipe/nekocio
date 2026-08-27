@@ -51,24 +51,25 @@
          Se dispara más tarde para que las cards se animen cuando el usuario
          realmente pueda verlas, no apenas empieza a entrar la sección. */
       const seccionProblema = document.querySelector("#problema");
+      const disparadorProblema = seccionProblema?.querySelector(".encabezado-dividido") || seccionProblema;
 
-      if (seccionProblema) {
+      if (disparadorProblema) {
         if (movimientoReducido || !("IntersectionObserver" in window)) {
           seccionProblema.classList.add("problema-activa", "problema-lista");
         } else {
           const observadorProblema = new IntersectionObserver((entradas, instancia) => {
             entradas.forEach((entrada) => {
               if (!entrada.isIntersecting) return;
-              entrada.target.classList.add("problema-activa");
-              window.setTimeout(() => entrada.target.classList.add("problema-lista"), 3200);
+              seccionProblema.classList.add("problema-activa");
+              window.setTimeout(() => seccionProblema.classList.add("problema-lista"), 3200);
               instancia.unobserve(entrada.target);
             });
           }, {
-            threshold: 0.35,
-            rootMargin: "0px 0px -25% 0px"
+            threshold: 0.01,
+            rootMargin: "0px 0px -12% 0px"
           });
 
-          observadorProblema.observe(seccionProblema);
+          observadorProblema.observe(disparadorProblema);
         }
       }
 
@@ -79,6 +80,10 @@
       const revelarServiciosTemprano = document.querySelectorAll("#servicios .revelar-delay-3, #servicios .revelar-delay-4, #servicios .revelar-delay-5");
       const revelarServiciosPrincipales = document.querySelectorAll("#servicios .revelar:not(.revelar-delay-3):not(.revelar-delay-4):not(.revelar-delay-5)");
       const revelarOtros = document.querySelectorAll(".revelar:not(#servicios .revelar)");
+      const esPantallaMovil = window.matchMedia("(max-width: 720px)").matches;
+      const opcionesServicios = esPantallaMovil
+        ? { threshold: 0.01, rootMargin: "0px 0px -5% 0px" }
+        : { threshold: 0.25, rootMargin: "0px 0px -20% 0px" };
 
       if (movimientoReducido || !("IntersectionObserver" in window)) {
         revelarServicios.forEach((elemento) => elemento.classList.add("visible"));
@@ -90,7 +95,7 @@
             entrada.target.classList.add("visible");
             instancia.unobserve(entrada.target);
           });
-        }, { threshold: 0.25, rootMargin: "0px 0px -20% 0px" });
+        }, opcionesServicios);
 
         const observadorServiciosTemprano = new IntersectionObserver((entradas, instancia) => {
           entradas.forEach((entrada) => {
@@ -98,7 +103,7 @@
             entrada.target.classList.add("visible");
             instancia.unobserve(entrada.target);
           });
-        }, { threshold: 0.08, rootMargin: "0px 0px -5% 0px" });
+        }, esPantallaMovil ? opcionesServicios : { threshold: 0.08, rootMargin: "0px 0px -5% 0px" });
 
         const observadorGeneral = new IntersectionObserver((entradas, instancia) => {
           entradas.forEach((entrada) => {

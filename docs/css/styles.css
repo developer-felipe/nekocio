@@ -530,6 +530,8 @@ svg {
   margin: 7px 0 0;  color: var(--texto-gris);  font-size: 9px;  line-height: 1.4}
 .panel-demo-boton {
   position: relative;  display: inline-flex;  width: 100%;  min-height: 38px;  align-items: center;  justify-content: flex-start;  margin-top: 11px;  padding: 0 100px 0 16px;  overflow: hidden;  color: rgba(255,255,255,.8);  background: #353538;  border: 1px solid rgba(11,11,13,.12);  border-radius: 999px;  cursor: not-allowed;  font-size: 10px;  font-weight: 800;  letter-spacing: -.01em;  pointer-events: none;  user-select: none}
+.panel-demo-boton__texto {
+  overflow: hidden;  text-overflow: ellipsis;  white-space: nowrap}
 .panel-demo-boton__proximamente {
   position: absolute;  inset: 0 0 0 auto;  display: flex;  width: 92px;  align-items: center;  justify-content: center;  padding-left: 12px;  color: var(--color-blanco);  background: #b91d2b;  clip-path: polygon(22% 0,100% 0,100% 100%,0 100%);  font-size: 7px;  font-weight: 800;  letter-spacing: .06em;  text-transform: uppercase}
 .proceso-grid {
@@ -815,6 +817,8 @@ svg {
   .servicios-grid > .revelar[data-col],
   .servicios-grid > .revelar[data-col-md] {
     grid-column: auto  }
+  #servicios .revelar {
+    --revelar-delay: 0ms  }
   .problema-card {
     min-height: 330px  }
   .problema-card h3 {
@@ -1471,7 +1475,11 @@ svg {
   .panel-flotante.google {
     bottom: 0;    left: 0  }
   .panel-demo-boton {
-    min-height: 30px;    margin-top: 8px;    padding-inline: 9px;    font-size: 7.8px  }
+    display: inline-flex;    min-height: 30px;    margin-top: 8px;    padding: 0 82px 0 10px;    font-size: 7.8px  }
+  .panel-demo-boton__texto {
+    overflow: visible;    text-overflow: clip  }
+  .panel-demo-boton__proximamente {
+    position: absolute;    inset: 0 0 0 auto;    width: 76px;    min-width: 0;    padding-left: 9px;    font-size: 6.3px  }
 }
 @media (max-width:480px) {
   .panel-3d {
@@ -1535,9 +1543,9 @@ svg {
   .panel-flotante.google {
     transform: none!important;    animation: none!important;    filter: none!important;    backdrop-filter: none!important;    -webkit-backdrop-filter: none!important;    background: rgba(255,255,255,.98);    box-shadow: 0 16px 34px rgba(11,11,13,.18);    backface-visibility: visible;    -webkit-font-smoothing: antialiased  }
   .panel-flotante.edicion {
-    top: 0;    right: 0;    bottom: auto;    left: auto  }
+    top: 0;    right: 12px;    bottom: auto;    left: auto  }
   .panel-flotante.google {
-    top: auto;    right: auto;    bottom: 0;    left: 0  }
+    top: auto;    right: auto;    bottom: 0;    left: 12px;    width: 190px  }
   .hero h1 {
     overflow: visible  }
   .hero h1 .degradado {
@@ -1552,9 +1560,9 @@ svg {
   .panel-flotante {
     width: 138px  }
   .panel-flotante.edicion {
-    top: 0;    right: 0  }
+    top: 0;    right: 12px  }
   .panel-flotante.google {
-    bottom: 0;    left: 0  }
+    bottom: 0;    left: 12px  }
   .hero h1 .degradado {
     padding-bottom: .15em;    margin-bottom: -.15em  }
 }
