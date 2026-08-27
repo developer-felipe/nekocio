@@ -74,13 +74,19 @@ svg {
   opacity: 1;  transform: translateY(0)}
 .revelar-delay-1 { --revelar-delay: 0ms }
 .revelar-delay-2 { --revelar-delay: 650ms }
-.revelar-delay-3 { --revelar-delay: 0ms }
-.revelar-delay-4 { --revelar-delay: 300ms }
-.revelar-delay-5 { --revelar-delay: 600ms }
+.revelar-delay-3 { --revelar-delay: 650ms }
+.revelar-delay-4 { --revelar-delay: 1300ms }
+.revelar-delay-5 { --revelar-delay: 1950ms }
 .servicios-grid > .revelar {
   opacity: 0;  transform: scale(.975);  transform-origin: center;  transition: opacity .78s ease-out var(--revelar-delay,0s),transform .78s cubic-bezier(.22,1,.36,1) var(--revelar-delay,0s);  will-change: opacity,transform}
 .servicios-grid > .revelar.visible {
   opacity: 1;  transform: scale(1)}
+@media (min-width:921px) {
+  .servicios-grid > .revelar {
+    display: flex}
+  .servicios-grid > .revelar > .servicio-card {
+    width: 100%;  flex: 1 1 auto}
+}
 .cabecera {
   position: fixed;  z-index: 100;  top: 0;  right: 0;  left: 0;  padding: 18px 0;  transition: padding .35s var(--ease-premium)}
 .cabecera::before {
@@ -147,14 +153,20 @@ svg {
   margin-left: 2px;  color: var(--color-dorado-claro);  font-family: var(--fuente-japonesa);  letter-spacing: .08em;  text-transform: none}
 .hero h1 {
   max-width: 790px;  margin: 0;  font-size: clamp(58px, 7.8vw, 118px);  font-weight: 600;  line-height: .87;  letter-spacing: -.073em;  text-wrap: balance}
+.hero-titulo__linea {
+  display: block}
+.hero-titulo__linea--principal {
+  animation: caer-titular-principal 1.3s .28s cubic-bezier(.16,1,.3,1) both}
+.hero-titulo__linea--eleccion {
+  animation: caer-titular-eleccion 2.5s 1.25s cubic-bezier(.16,1,.3,1) both}
 .hero h1 .degradado {
   display: inline-block;  padding-right: .06em;  color: transparent;  background: var(--gradiente-institucional);  -webkit-background-clip: text;  background-clip: text}
 .hero-bajada {
-  max-width: 610px;  margin: 32px 0 0;  color: rgba(247,245,240,.68);  font-size: clamp(17px, 1.55vw, 21px);  line-height: 1.62}
+  max-width: 610px;  margin: 32px 0 0;  color: rgba(247,245,240,.68);  font-size: clamp(17px, 1.55vw, 21px);  line-height: 1.62;  animation: barrer-contenido-hero .65s 2.8s cubic-bezier(.22,1,.36,1) both,revelar-opacidad-hero 1.2s 2.8s ease-out both}
 .hero-acciones {
-  display: flex;  flex-wrap: wrap;  gap: 14px;  margin-top: 38px}
+  display: flex;  flex-wrap: wrap;  gap: 14px;  margin-top: 38px;  animation: barrer-contenido-hero 1.55s 4.4s cubic-bezier(.22,1,.36,1) both,revelar-opacidad-hero 1.8s 4.4s ease-out both}
 .hero-pilares {
-  display: flex;  width: 100%;  flex-wrap: wrap;  align-items: center;  justify-content: center;  gap: 12px 24px;  margin-top: 8px;  color: rgba(247,245,240,.56);  font-size: 12px;  font-weight: 700;  letter-spacing: .08em;  text-align: center;  text-transform: uppercase}
+  display: flex;  width: 100%;  flex-wrap: wrap;  align-items: center;  justify-content: center;  gap: 12px 24px;  margin-top: 8px;  color: rgba(247,245,240,.56);  font-size: 12px;  font-weight: 700;  letter-spacing: .08em;  text-align: center;  text-transform: uppercase;  animation: barrer-contenido-hero .65s 3.6s cubic-bezier(.22,1,.36,1) both,revelar-opacidad-hero 1.2s 3.6s ease-out both}
 .hero-pilares span {
   display: inline-flex;  align-items: center;  gap: 9px}
 .hero-pilares span::before {
@@ -246,26 +258,26 @@ svg {
   display: grid;  grid-template-columns: repeat(12, 1fr);  gap: 18px}
 #problema .encabezado-dividido > .bajada-seccion,
 #problema .encabezado-dividido > div {
-  opacity: 0;  transform: translate3d(0, 18px, 0);  transition: opacity .65s ease-out,transform .65s cubic-bezier(.22,1,.36,1);  will-change: opacity,transform}
+  opacity: 0;  transform: translate3d(0, -28px, 0);  transition: opacity 1.2s ease-out,transform 5s cubic-bezier(.16,1,.3,1);  will-change: opacity,transform}
 #problema .encabezado-dividido > .bajada-seccion {
-  transition-delay: 0.12s}
+  transition-delay: 0.22s}
 #problema.problema-activa .encabezado-dividido > .bajada-seccion,
 #problema.problema-activa .encabezado-dividido > div {
   opacity: 1;  transform: translate3d(0, 0, 0)}
 .problema-card {
-  --inclinar-x: 0deg;  --inclinar-y: 0deg;  --elevacion: 0px;  --entrada-y: 18px;  position: relative;  min-height: 360px;  padding: 34px;  overflow: hidden;  opacity: 0;  border: 1px solid var(--linea-clara);  border-radius: var(--radio-md);  transform: perspective(1000px) rotateX(var(--inclinar-x)) rotateY(var(--inclinar-y)) translateY(calc(var(--elevacion) + var(--entrada-y))) scale(.99);  transform-style: preserve-3d;  transition: opacity .62s ease-out,transform .68s cubic-bezier(.22,1,.36,1),box-shadow .45s var(--ease-premium),border-color .35s ease;  will-change: opacity,transform}
+  --inclinar-x: 0deg;  --inclinar-y: 0deg;  --elevacion: 0px;  position: relative;  min-height: 360px;  padding: 34px;  overflow: hidden;  opacity: 0;  border: 1px solid var(--linea-clara);  border-radius: var(--radio-md);  transform: perspective(1000px) rotateX(var(--inclinar-x)) rotateY(var(--inclinar-y)) translateY(var(--elevacion));  transform-style: preserve-3d;  transition: opacity .62s ease-out,transform .68s cubic-bezier(.22,1,.36,1),box-shadow .45s var(--ease-premium),border-color .35s ease;  will-change: opacity,transform}
 #problema.problema-activa .problema-card {
-  --entrada-y: 0px;  opacity: 1;  transform: perspective(1000px) rotateX(var(--inclinar-x)) rotateY(var(--inclinar-y)) translateY(calc(var(--elevacion) + var(--entrada-y))) scale(1)}
+  opacity: 1}
 #problema.problema-activa .problema-card:first-child {
-  transition-delay: 0.2s}
+  transition-delay: 0.95s}
 #problema.problema-activa .problema-card:nth-child(2) {
-  transition-delay: 0.9s}
+  transition-delay: 1.65s}
 #problema.problema-activa .problema-card:nth-child(3) {
-  transition-delay: 1.6s}
+  transition-delay: 2.35s}
 #problema.problema-lista .problema-card {
   transition-delay: 0s}
 .problema-card:hover {
-  --elevacion: -8px;  box-shadow: var(--sombra-suave)}
+  box-shadow: var(--sombra-suave)}
 .problema-card:first-child {
   grid-column: span 4;  color: var(--color-blanco);  background: var(--color-negro);  border-color: var(--linea-oscura)}
 .problema-card:nth-child(2) {
@@ -275,11 +287,11 @@ svg {
 .problema-numero {
   display: flex;  align-items: center;  justify-content: space-between;  color: currentColor;  font-size: 12px;  font-weight: 800;  letter-spacing: .15em;  opacity: 0;  transform: translate3d(0, 8px, 28px);  will-change: opacity,transform}
 #problema.problema-activa .problema-card:first-child .problema-numero {
-  animation: revelar-numero-problema .48s .4s cubic-bezier(.22,1,.36,1) forwards}
+  animation: revelar-numero-problema .48s 1.18s cubic-bezier(.22,1,.36,1) forwards}
 #problema.problema-activa .problema-card:nth-child(2) .problema-numero {
-  animation: revelar-numero-problema .48s 1.1s cubic-bezier(.22,1,.36,1) forwards}
+  animation: revelar-numero-problema .48s 1.88s cubic-bezier(.22,1,.36,1) forwards}
 #problema.problema-activa .problema-card:nth-child(3) .problema-numero {
-  animation: revelar-numero-problema .48s 1.8s cubic-bezier(.22,1,.36,1) forwards}
+  animation: revelar-numero-problema .48s 2.58s cubic-bezier(.22,1,.36,1) forwards}
 .problema-numero b {
   font-family: var(--fuente-japonesa);  font-size: 20px}
 @keyframes revelar-numero-problema {
@@ -441,6 +453,13 @@ svg {
   color: rgba(11,11,13,.68)}
 .control-grid {
   display: grid;  grid-template-columns: minmax(0, 0.8fr) minmax(520px, 1.2fr);  align-items: center;  gap: clamp(54px, 8vw, 118px)}
+#control .control-copy.revelar {
+  transform: translateY(32px);  transition: opacity 1.2s ease-out,transform 1.2s cubic-bezier(.16,1,.3,1)}
+#control .panel-3d.revelar {
+  transform: translateY(32px);  transition: opacity 1.2s .28s ease-out,transform 1.2s .28s cubic-bezier(.16,1,.3,1)}
+#control .control-copy.revelar.visible,
+#control .panel-3d.revelar.visible {
+  transform: translateY(0)}
 .control-lista {
   display: grid;  gap: 16px;  margin-top: 38px}
 .control-item {
@@ -539,6 +558,10 @@ svg {
   position: relative;  padding: 96px 0 34px;  color: var(--color-blanco);  background: var(--color-negro)}
 .contacto-panel {
   position: relative;  min-height: 560px;  padding: clamp(42px, 7vw, 90px);  overflow: hidden;  background: radial-gradient(circle at 85% 18%, rgba(255,255,255,.2), transparent 17%),var(--gradiente-institucional);  border-radius: clamp(30px, 4vw, 56px);  box-shadow: 0 44px 100px rgba(0,0,0,.28)}
+.contacto-panel.revelar {
+  transform: translateY(68px);  transition: opacity 1.6s ease-out,transform 1.6s cubic-bezier(.16,1,.3,1)}
+.contacto-panel.revelar.visible {
+  transform: translateY(0)}
 .contacto-logo {
   position: absolute;  z-index: 3;  top: 42px;  right: 48px;  display: block;  width: 88px;  height: 88px;  object-fit: contain;  object-position: center;  background: 0 0;  filter: drop-shadow(0 16px 28px rgba(11,11,13,.2));  transform: translate3d(0, 0, 0) rotate(5deg);  transform-origin: center;  animation: 5.6s ease-in-out infinite flotar-logo-contacto;  will-change: transform;  pointer-events: none;  user-select: none;  -webkit-user-drag: none}
 .contacto-panel h2 {
@@ -559,6 +582,30 @@ svg {
   display: flex;  flex-wrap: wrap;  gap: 20px}
 .pie-enlaces a:hover {
   color: var(--color-blanco)}
+@keyframes caer-titular-principal {
+  from {
+    opacity: 0;    transform: translateY(-72px)  }
+  to {
+    opacity: 1;    transform: translateY(0)  }
+}
+@keyframes caer-titular-eleccion {
+  from {
+    opacity: 0;    transform: translateY(-56px)  }
+  to {
+    opacity: 1;    transform: translateY(0)  }
+}
+@keyframes barrer-contenido-hero {
+  from {
+    transform: translateY(22px)  }
+  to {
+    transform: translateY(0)  }
+}
+@keyframes revelar-opacidad-hero {
+  from {
+    opacity: 0  }
+  to {
+    opacity: 1  }
+}
 @keyframes flotar-logo-navbar {
   0%,
   100% {
@@ -910,6 +957,11 @@ svg {
     animation: none;    will-change: auto  }
 }
 @media (prefers-reduced-motion:reduce) {
+  .hero-titulo__linea,
+  .hero-bajada,
+  .hero-pilares,
+  .hero-acciones {
+    animation: none!important;    opacity: 1;    transform: none!important  }
   #problema .encabezado-dividido > .bajada-seccion,
   #problema .encabezado-dividido > div,
   #problema .problema-card,
@@ -919,7 +971,7 @@ svg {
   #problema .encabezado-dividido > div {
     transform: none!important  }
   #problema .problema-card {
-    --entrada-y: 0px;    transform: perspective(1000px) rotateX(var(--inclinar-x)) rotateY(var(--inclinar-y)) translateY(var(--elevacion))!important  }
+    transform: perspective(1000px) rotateX(var(--inclinar-x)) rotateY(var(--inclinar-y)) translateY(var(--elevacion))!important  }
   #problema .problema-numero {
     opacity: .6!important;    transform: translate3d(0, 0, 28px)!important  }
   html {

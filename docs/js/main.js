@@ -60,7 +60,7 @@
             entradas.forEach((entrada) => {
               if (!entrada.isIntersecting) return;
               entrada.target.classList.add("problema-activa");
-              window.setTimeout(() => entrada.target.classList.add("problema-lista"), 1350);
+              window.setTimeout(() => entrada.target.classList.add("problema-lista"), 3200);
               instancia.unobserve(entrada.target);
             });
           }, {
@@ -76,6 +76,8 @@
          Servicios usa un trigger más estricto para que cada card aparezca
          cuando el bloque está realmente visible, con delays escalonados. */
       const revelarServicios = document.querySelectorAll("#servicios .revelar");
+      const revelarServiciosTemprano = document.querySelectorAll("#servicios .revelar-delay-3, #servicios .revelar-delay-4, #servicios .revelar-delay-5");
+      const revelarServiciosPrincipales = document.querySelectorAll("#servicios .revelar:not(.revelar-delay-3):not(.revelar-delay-4):not(.revelar-delay-5)");
       const revelarOtros = document.querySelectorAll(".revelar:not(#servicios .revelar)");
 
       if (movimientoReducido || !("IntersectionObserver" in window)) {
@@ -90,6 +92,14 @@
           });
         }, { threshold: 0.25, rootMargin: "0px 0px -20% 0px" });
 
+        const observadorServiciosTemprano = new IntersectionObserver((entradas, instancia) => {
+          entradas.forEach((entrada) => {
+            if (!entrada.isIntersecting) return;
+            entrada.target.classList.add("visible");
+            instancia.unobserve(entrada.target);
+          });
+        }, { threshold: 0.08, rootMargin: "0px 0px -5% 0px" });
+
         const observadorGeneral = new IntersectionObserver((entradas, instancia) => {
           entradas.forEach((entrada) => {
             if (!entrada.isIntersecting) return;
@@ -98,7 +108,8 @@
           });
         }, { threshold: 0.14, rootMargin: "0px 0px -6%" });
 
-        revelarServicios.forEach((elemento) => observadorServicios.observe(elemento));
+        revelarServiciosPrincipales.forEach((elemento) => observadorServicios.observe(elemento));
+        revelarServiciosTemprano.forEach((elemento) => observadorServiciosTemprano.observe(elemento));
         revelarOtros.forEach((elemento) => observadorGeneral.observe(elemento));
       }
 
