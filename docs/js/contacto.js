@@ -10,6 +10,7 @@
   const contenedorTurnstile = document.querySelector("#turnstile-contacto");
   const campoMensaje = document.querySelector("#mensaje");
   const contadorMensaje = document.querySelector("#contador-mensaje");
+  const textoBotonEnviar = document.querySelector(".boton-enviar-formulario__texto");
   const camposFormulario = document.querySelectorAll("#formulario-contacto input:not(#sitio-web), #formulario-contacto textarea");
   let identificadorTurnstile = null;
 
@@ -22,6 +23,13 @@
 
   const actualizarContador = () => {
     if (campoMensaje && contadorMensaje) contadorMensaje.textContent = `${campoMensaje.value.length} / 500`;
+  };
+
+  const restablecerBotonEnviar = () => {
+    botonEnviarFormulario.disabled = false;
+    botonEnviarFormulario.classList.remove("enviando", "enviado");
+    botonEnviarFormulario.removeAttribute("aria-busy");
+    if (textoBotonEnviar) textoBotonEnviar.textContent = "Enviar formulario";
   };
 
   const validarFormulario = () => {
@@ -71,6 +79,7 @@
     camposFormulario.forEach((campo) => campo.removeAttribute("aria-invalid"));
     actualizarContador();
     mostrarEstado("");
+    restablecerBotonEnviar();
     if (identificadorTurnstile !== null && window.turnstile) window.turnstile.reset(identificadorTurnstile);
     modalContacto.showModal();
     document.querySelector("#nombre")?.focus();
@@ -102,7 +111,9 @@
     }
 
     botonEnviarFormulario.disabled = true;
-    mostrarEstado("Enviando formulario...");
+    botonEnviarFormulario.classList.add("enviando");
+    botonEnviarFormulario.setAttribute("aria-busy", "true");
+    let fueEnviado = false;
 
     try {
       const respuesta = await fetch("https://contacto.eci-felipe.workers.dev/contact", {
@@ -122,12 +133,16 @@
 
       formularioContacto.reset();
       actualizarContador();
-      mostrarEstado("Formulario enviado. Te contactaremos pronto.");
+      fueEnviado = true;
+      botonEnviarFormulario.classList.remove("enviando");
+      botonEnviarFormulario.classList.add("enviado");
+      botonEnviarFormulario.removeAttribute("aria-busy");
+      if (textoBotonEnviar) textoBotonEnviar.textContent = "Enviado";
     } catch (errorEnvio) {
       mostrarEstado(errorEnvio.message || "No pudimos enviar el formulario. Inténtalo nuevamente.", true);
     } finally {
       if (identificadorTurnstile !== null && window.turnstile) window.turnstile.reset(identificadorTurnstile);
-      botonEnviarFormulario.disabled = false;
+      if (!fueEnviado) restablecerBotonEnviar();
     }
   });
 
