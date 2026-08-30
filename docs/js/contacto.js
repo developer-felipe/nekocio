@@ -3,7 +3,7 @@
 
   const modalContacto = document.querySelector("#modal-contacto");
   const botonSolicitarEvaluacion = document.querySelector("[data-solicitar-evaluacion]");
-  const botonCerrarModal = document.querySelector("#cerrar-modal-contacto");
+  const botonesCerrarModal = document.querySelectorAll("[data-cerrar-modal-contacto]");
   const formularioContacto = document.querySelector("#formulario-contacto");
   const botonEnviarFormulario = document.querySelector("#enviar-formulario-contacto");
   const estadoFormulario = document.querySelector("#estado-formulario");
@@ -13,6 +13,7 @@
   const textoBotonEnviar = document.querySelector(".boton-enviar-formulario__texto");
   const camposFormulario = document.querySelectorAll("#formulario-contacto input:not(#sitio-web), #formulario-contacto textarea");
   let identificadorTurnstile = null;
+  let posicionScrollPagina = 0;
 
   if (!modalContacto || !botonSolicitarEvaluacion || !formularioContacto || !botonEnviarFormulario || !estadoFormulario || !contenedorTurnstile) return;
 
@@ -30,6 +31,18 @@
     botonEnviarFormulario.classList.remove("enviando", "enviado");
     botonEnviarFormulario.removeAttribute("aria-busy");
     if (textoBotonEnviar) textoBotonEnviar.textContent = "Enviar formulario";
+  };
+
+  const bloquearScrollPagina = () => {
+    posicionScrollPagina = window.scrollY;
+    document.body.style.top = `-${posicionScrollPagina}px`;
+    document.body.classList.add("modal-contacto-abierto");
+  };
+
+  const desbloquearScrollPagina = () => {
+    document.body.classList.remove("modal-contacto-abierto");
+    document.body.style.top = "";
+    window.scrollTo(0, posicionScrollPagina);
   };
 
   const validarFormulario = () => {
@@ -82,11 +95,13 @@
     restablecerBotonEnviar();
     if (identificadorTurnstile !== null && window.turnstile) window.turnstile.reset(identificadorTurnstile);
     modalContacto.showModal();
+    bloquearScrollPagina();
     document.querySelector("#nombre")?.focus();
   });
 
   modalContacto.addEventListener("cancel", (evento) => evento.preventDefault());
-  botonCerrarModal.addEventListener("click", () => modalContacto.close());
+  modalContacto.addEventListener("close", desbloquearScrollPagina);
+  botonesCerrarModal.forEach((botonCerrar) => botonCerrar.addEventListener("click", () => modalContacto.close()));
 
   formularioContacto.addEventListener("submit", async (evento) => {
     evento.preventDefault();

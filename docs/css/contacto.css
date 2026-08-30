@@ -10,6 +10,11 @@
   border-radius: var(--radio-md);
   box-shadow: var(--sombra-profunda)
 }
+body.modal-contacto-abierto {
+  position: fixed;
+  width: 100%;
+  overflow: hidden
+}
 .modal-contacto::backdrop {
   background: rgba(11,11,13,.86)
 }
@@ -41,6 +46,24 @@
   position: relative;
   z-index: 1
 }
+.modal-contacto__cerrar {
+  position: sticky;
+  z-index: 2;
+  top: 12px;
+  display: flex;
+  width: 48px;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -48px;
+  margin-left: auto;
+  padding: 0;
+  font-family: var(--fuente-japonesa);
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0
+}
 .modal-contacto__cabecera h2 {
   max-width: 550px;
   margin: 0;
@@ -48,6 +71,9 @@
   font-weight: 600;
   line-height: .94;
   letter-spacing: -.065em
+}
+.modal-contacto__cabecera {
+  padding-right: 60px
 }
 .modal-contacto__cabecera > p:last-child {
   max-width: 510px;
@@ -176,14 +202,19 @@
     width: min(calc(100% - 16px), 760px);
     height: calc(100dvh - 16px);
     max-height: calc(100dvh - 16px);
+    overflow: hidden
+  }
+  .modal-contacto__contenido {
+    height: 100%;
+    padding: 20px;
+    contain: none;
+    overflow-x: hidden;
     overflow-y: auto;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch
   }
-  .modal-contacto__contenido {
-    padding: 20px
-    contain: none;
-    overflow: visible
+  .modal-contacto__cabecera {
+    padding-right: 60px
   }
   .modal-contacto__cabecera h2 {
     font-size: clamp(36px, 10vw, 46px)
@@ -204,6 +235,9 @@
   .modal-contacto__acciones {
     align-items: stretch;
     flex-direction: column
+  }
+  .boton-cerrar-formulario {
+    display: none
   }
   .modal-contacto__acciones .boton-primario {
     margin-left: 0

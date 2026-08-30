@@ -619,6 +619,7 @@
   <dialog class="modal-contacto" id="modal-contacto" aria-labelledby="titulo-modal-contacto" aria-describedby="descripcion-modal-contacto">
     <div class="modal-contacto__contenido">
       <div class="modal-contacto__escamas" aria-hidden="true"></div>
+      <button class="boton boton-primario modal-contacto__cerrar" id="cerrar-modal-contacto" type="button" aria-label="Cerrar formulario" data-cerrar-modal-contacto>メ</button>
       <div class="modal-contacto__cabecera">
         <p class="etiqueta">Evaluación digital</p>
         <h2 id="titulo-modal-contacto">Cuéntanos sobre tu negocio.</h2>
@@ -635,7 +636,7 @@
         <div class="turnstile-contacto" id="turnstile-contacto"></div>
         <p class="modal-contacto__estado" id="estado-formulario" role="status" aria-live="polite"></p>
         <div class="modal-contacto__acciones">
-          <button class="boton boton-secundario" id="cerrar-modal-contacto" type="button">Cerrar</button>
+          <button class="boton boton-secundario boton-cerrar-formulario" type="button" data-cerrar-modal-contacto>Cerrar</button>
           <button class="boton boton-primario boton-enviar-formulario" id="enviar-formulario-contacto" type="submit"><span class="boton-enviar-formulario__texto">Enviar formulario</span><span class="boton-enviar-formulario__cargador" aria-hidden="true"></span></button>
         </div>
       </form>
