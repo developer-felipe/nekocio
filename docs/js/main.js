@@ -41,16 +41,7 @@
 
           eventoClic.preventDefault();
           if (selector === "#contacto") {
-            if (window.matchMedia("(max-width: 600px)").matches) {
-              const posicionEtiqueta = window.scrollY + destino.getBoundingClientRect().top - 36;
-              window.scrollTo({
-                top: Math.max(0, posicionEtiqueta),
-                behavior: movimientoReducido ? "auto" : "smooth"
-              });
-              return;
-            }
-            const alturaDocumento = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-            const posicionContacto = Math.max(0, alturaDocumento - window.innerHeight - 250);
+            const posicionContacto = window.scrollY + destino.getBoundingClientRect().top + 10;
             window.scrollTo({
               top: posicionContacto,
               behavior: movimientoReducido ? "auto" : "smooth"
