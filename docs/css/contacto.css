@@ -50,13 +50,17 @@ body.modal-contacto-abierto {
   position: sticky;
   z-index: 2;
   top: 12px;
-  display: flex;
+  display: grid !important;
   width: 48px;
+  min-width: 48px;
+  max-width: 48px;
+  height: 48px;
   min-height: 48px;
+  max-height: 48px;
   align-items: center;
   justify-content: center;
   margin-bottom: -48px;
-  margin-left: auto;
+  margin-left: calc(100% - 48px);
   padding: 0;
   font-family: var(--fuente-japonesa);
   font-size: 18px;
@@ -237,7 +241,7 @@ body.modal-contacto-abierto {
     flex-direction: column
   }
   .boton-cerrar-formulario {
-    display: none
+    display: none !important
   }
   .modal-contacto__acciones .boton-primario {
     margin-left: 0

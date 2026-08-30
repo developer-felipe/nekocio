@@ -11,6 +11,7 @@
   const campoMensaje = document.querySelector("#mensaje");
   const contadorMensaje = document.querySelector("#contador-mensaje");
   const textoBotonEnviar = document.querySelector(".boton-enviar-formulario__texto");
+  const botonCerrarFormulario = document.querySelector(".boton-cerrar-formulario");
   const camposFormulario = document.querySelectorAll("#formulario-contacto input:not(#sitio-web), #formulario-contacto textarea");
   let identificadorTurnstile = null;
   let posicionScrollPagina = 0;
@@ -24,6 +25,11 @@
 
   const actualizarContador = () => {
     if (campoMensaje && contadorMensaje) contadorMensaje.textContent = `${campoMensaje.value.length} / 500`;
+  };
+
+  const actualizarVisibilidadBotonCerrar = () => {
+    if (!botonCerrarFormulario) return;
+    botonCerrarFormulario.hidden = window.matchMedia("(max-width: 600px)").matches;
   };
 
   const restablecerBotonEnviar = () => {
@@ -42,7 +48,12 @@
   const desbloquearScrollPagina = () => {
     document.body.classList.remove("modal-contacto-abierto");
     document.body.style.top = "";
-    window.scrollTo(0, posicionScrollPagina);
+    const comportamientoScroll = document.documentElement.style.scrollBehavior;
+    document.documentElement.style.scrollBehavior = "auto";
+    requestAnimationFrame(() => {
+      window.scrollTo(0, posicionScrollPagina);
+      document.documentElement.style.scrollBehavior = comportamientoScroll;
+    });
   };
 
   const validarFormulario = () => {
@@ -86,6 +97,7 @@
 
   campoMensaje?.addEventListener("input", actualizarContador);
   camposFormulario.forEach((campo) => campo.addEventListener("input", () => campo.removeAttribute("aria-invalid")));
+  window.addEventListener("resize", actualizarVisibilidadBotonCerrar);
 
   botonSolicitarEvaluacion.addEventListener("click", () => {
     formularioContacto.reset();
@@ -162,5 +174,6 @@
   });
 
   actualizarContador();
+  actualizarVisibilidadBotonCerrar();
   inicializarTurnstile();
 })();
