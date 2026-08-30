@@ -42,7 +42,8 @@
           eventoClic.preventDefault();
           if (selector === "#contacto") {
             const alturaDocumento = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-            const posicionContacto = Math.max(0, alturaDocumento - window.innerHeight - 25);
+            const margenContacto = window.matchMedia("(max-width: 600px)").matches ? 120 : 25;
+            const posicionContacto = Math.max(0, alturaDocumento - window.innerHeight - margenContacto);
             window.scrollTo({
               top: posicionContacto,
               behavior: movimientoReducido ? "auto" : "smooth"
