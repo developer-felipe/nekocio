@@ -107,6 +107,7 @@
     restablecerBotonEnviar();
     if (identificadorTurnstile !== null && window.turnstile) window.turnstile.reset(identificadorTurnstile);
     modalContacto.showModal();
+    modalContacto.focus({ preventScroll: true });
     bloquearScrollPagina();
   });
 
