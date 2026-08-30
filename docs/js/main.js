@@ -41,7 +41,8 @@
 
           eventoClic.preventDefault();
           if (selector === "#contacto") {
-            const posicionContacto = window.scrollY + destino.getBoundingClientRect().top + 10;
+            const margenContacto = window.matchMedia("(max-width: 600px)").matches ? 30 : 10;
+            const posicionContacto = window.scrollY + destino.getBoundingClientRect().top + margenContacto;
             window.scrollTo({
               top: posicionContacto,
               behavior: movimientoReducido ? "auto" : "smooth"
