@@ -50,7 +50,7 @@
               return;
             }
             const alturaDocumento = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-            const posicionContacto = Math.max(0, alturaDocumento - window.innerHeight - 25);
+            const posicionContacto = Math.max(0, alturaDocumento - window.innerHeight - 75);
             window.scrollTo({
               top: posicionContacto,
               behavior: movimientoReducido ? "auto" : "smooth"
