@@ -40,6 +40,15 @@
           if (!destino) return;
 
           eventoClic.preventDefault();
+          if (selector === "#contacto") {
+            const alturaDocumento = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+            const posicionContacto = Math.max(0, alturaDocumento - window.innerHeight - 25);
+            window.scrollTo({
+              top: posicionContacto,
+              behavior: movimientoReducido ? "auto" : "smooth"
+            });
+            return;
+          }
           destino.scrollIntoView({
             behavior: movimientoReducido ? "auto" : "smooth",
             block: "start"
