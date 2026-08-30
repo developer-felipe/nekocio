@@ -33,6 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/contacto.css">
 </head>
 
 <body>
@@ -593,10 +594,10 @@
         <p>Revisamos cómo se presenta hoy tu negocio en digital y definimos las piezas necesarias para mejorar su visibilidad, transmitir mejor su propuesta y facilitar que tus clientes encuentren, consulten e interactúen con tu negocio.</p>
 
         <div class="contacto-acciones">
-          <a class="boton boton-oscuro"  data-magnetico>
+          <button class="boton boton-oscuro" type="button" data-solicitar-evaluacion data-magnetico>
             Solicitar evaluación
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
+          </button>
           <a class="boton boton-secundario" href="https://wa.me/" data-magnetico>Conversar por WhatsApp</a>
         </div>
       </div>
@@ -615,6 +616,34 @@
     </div>
   </footer>
 
+  <dialog class="modal-contacto" id="modal-contacto" aria-labelledby="titulo-modal-contacto" aria-describedby="descripcion-modal-contacto">
+    <div class="modal-contacto__contenido">
+      <div class="modal-contacto__escamas" aria-hidden="true"></div>
+      <div class="modal-contacto__cabecera">
+        <p class="etiqueta">Evaluación digital</p>
+        <h2 id="titulo-modal-contacto">Cuéntanos sobre tu negocio.</h2>
+        <p id="descripcion-modal-contacto">Te contactaremos para revisar cómo podemos ayudarte.</p>
+      </div>
+      <form id="formulario-contacto" novalidate>
+        <div class="modal-contacto__campos">
+          <div class="campo-formulario"><label for="nombre">Nombre</label><input id="nombre" name="nombre" type="text" minlength="2" maxlength="50" autocomplete="name" required></div>
+          <div class="campo-formulario"><label for="correo">Correo</label><input id="correo" name="correo" type="email" maxlength="254" autocomplete="email" inputmode="email" required></div>
+          <div class="campo-formulario campo-formulario--completo"><label for="asunto">Asunto</label><input id="asunto" name="asunto" type="text" minlength="3" maxlength="50" required></div>
+          <div class="campo-formulario campo-formulario--completo"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" minlength="10" maxlength="500" rows="5" required aria-describedby="contador-mensaje"></textarea><span class="contador-mensaje" id="contador-mensaje">0 / 500</span></div>
+        </div>
+        <div class="campo-trampa" aria-hidden="true"><label for="sitio-web">Sitio web</label><input id="sitio-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <div class="turnstile-contacto" id="turnstile-contacto"></div>
+        <p class="modal-contacto__estado" id="estado-formulario" role="status" aria-live="polite"></p>
+        <div class="modal-contacto__acciones">
+          <button class="boton boton-secundario" id="cerrar-modal-contacto" type="button">Cerrar</button>
+          <button class="boton boton-primario" id="enviar-formulario-contacto" type="submit">Enviar formulario</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
   <script src="js/main.js" defer></script>
+  <script src="js/contacto.js" defer></script>
 </body>
 </html>

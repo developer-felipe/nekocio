@@ -1,0 +1,159 @@
+.modal-contacto {
+  width: min(calc(100% - 32px), 760px);
+  max-height: min(860px, calc(100svh - 32px));
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  color: var(--color-blanco);
+  background: transparent;
+  border: 0;
+  border-radius: var(--radio-md);
+  box-shadow: var(--sombra-profunda)
+}
+.modal-contacto::backdrop {
+  background: rgba(11,11,13,.82);
+  backdrop-filter: blur(4px)
+}
+.modal-contacto__contenido {
+  position: relative;
+  isolation: isolate;
+  contain: paint;
+  padding: clamp(28px, 5vw, 52px);
+  overflow: hidden;
+  background: radial-gradient(circle at 88% 8%, rgba(243,107,33,.25), transparent 24%),radial-gradient(circle at 8% 100%, rgba(217,26,44,.25), transparent 30%),var(--color-negro-suave);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: var(--radio-md)
+}
+.modal-contacto__escamas {
+  position: absolute;
+  z-index: 0;
+  right: -20px;
+  bottom: -38px;
+  left: -20px;
+  height: 290px;
+  opacity: .48;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='300' viewBox='0 0 150 300' shape-rendering='geometricPrecision'%3E%3Cg fill='none' stroke='white' stroke-opacity='.18' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg transform='translate(0 50)'%3E%3Cpath d='M0 50A50 50 0 0 1 100 50'/%3E%3Cpath d='M-75 100A50 50 0 0 1 25 100M75 100A50 50 0 0 1 175 100'/%3E%3C/g%3E%3Cg transform='translate(0 150)'%3E%3Cpath d='M0 50A50 50 0 0 1 100 50'/%3E%3Cpath d='M-75 100A50 50 0 0 1 25 100M75 100A50 50 0 0 1 175 100'/%3E%3C/g%3E%3Cg transform='translate(0 250)'%3E%3Cpath d='M0 50A50 50 0 0 1 100 50'/%3E%3Cpath d='M-75 100A50 50 0 0 1 25 100M75 100A50 50 0 0 1 175 100'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 150px 300px;
+  background-position: 0 0;
+  background-repeat: repeat-x
+}
+.modal-contacto__cabecera,.modal-contacto form {
+  position: relative;
+  z-index: 1
+}
+.modal-contacto__cabecera h2 {
+  max-width: 550px;
+  margin: 0;
+  font-size: clamp(38px, 6vw, 62px);
+  font-weight: 600;
+  line-height: .94;
+  letter-spacing: -.065em
+}
+.modal-contacto__cabecera > p:last-child {
+  max-width: 510px;
+  margin: 18px 0 0;
+  color: rgba(247,245,240,.68);
+  line-height: 1.55
+}
+.modal-contacto form {
+  margin-top: 32px
+}
+.modal-contacto__campos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px
+}
+.campo-formulario {
+  position: relative;
+  display: grid;
+  gap: 8px
+}
+.campo-formulario--completo {
+  grid-column: 1 / -1
+}
+.campo-formulario label {
+  font-size: 13px;
+  font-weight: 700
+}
+.campo-formulario input,.campo-formulario textarea {
+  width: 100%;
+  padding: 14px 16px;
+  color: var(--color-blanco);
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--linea-oscura);
+  border-radius: 14px;
+  outline: none;
+  touch-action: manipulation;
+  transition: border-color .2s,background-color .2s
+}
+.campo-formulario textarea {
+  resize: none;
+  overflow-y: auto
+}
+.campo-formulario input:focus,.campo-formulario textarea:focus {
+  background: rgba(255,255,255,.1);
+  border-color: var(--color-dorado-claro)
+}
+.campo-formulario input[aria-invalid=true],.campo-formulario textarea[aria-invalid=true] {
+  border-color: var(--color-rojo)
+}
+.contador-mensaje {
+  justify-self: end;
+  color: rgba(247,245,240,.56);
+  font-size: 12px;
+  font-weight: 600
+}
+.campo-trampa {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap
+}
+.turnstile-contacto {
+  display: flex;
+  min-height: 65px;
+  justify-content: center;
+  margin-top: 20px
+}
+.modal-contacto__estado {
+  min-height: 1.5em;
+  margin: 18px 0 0;
+  color: var(--color-dorado-claro);
+  font-size: 14px;
+  font-weight: 600
+}
+.modal-contacto__estado.error {
+  color: #ff8792
+}
+.modal-contacto__acciones {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 20px
+}
+.modal-contacto__acciones .boton-primario {
+  margin-left: auto
+}
+.modal-contacto button:disabled {
+  cursor: wait;
+  opacity: .65
+}
+@media (max-width: 600px) {
+  .modal-contacto__campos {
+    grid-template-columns: 1fr
+  }
+  .campo-formulario--completo {
+    grid-column: auto
+  }
+  .modal-contacto__acciones {
+    align-items: stretch;
+    flex-direction: column
+  }
+  .modal-contacto__acciones .boton-primario {
+    margin-left: 0
+  }
+}

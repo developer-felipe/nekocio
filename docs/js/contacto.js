@@ -1,0 +1,136 @@
+(() => {
+  "use strict";
+
+  const modalContacto = document.querySelector("#modal-contacto");
+  const botonSolicitarEvaluacion = document.querySelector("[data-solicitar-evaluacion]");
+  const botonCerrarModal = document.querySelector("#cerrar-modal-contacto");
+  const formularioContacto = document.querySelector("#formulario-contacto");
+  const botonEnviarFormulario = document.querySelector("#enviar-formulario-contacto");
+  const estadoFormulario = document.querySelector("#estado-formulario");
+  const contenedorTurnstile = document.querySelector("#turnstile-contacto");
+  const campoMensaje = document.querySelector("#mensaje");
+  const contadorMensaje = document.querySelector("#contador-mensaje");
+  const camposFormulario = document.querySelectorAll("#formulario-contacto input:not(#sitio-web), #formulario-contacto textarea");
+  let identificadorTurnstile = null;
+
+  if (!modalContacto || !botonSolicitarEvaluacion || !formularioContacto || !botonEnviarFormulario || !estadoFormulario || !contenedorTurnstile) return;
+
+  const mostrarEstado = (mensaje, esError = false) => {
+    estadoFormulario.textContent = mensaje;
+    estadoFormulario.classList.toggle("error", esError);
+  };
+
+  const actualizarContador = () => {
+    if (campoMensaje && contadorMensaje) contadorMensaje.textContent = `${campoMensaje.value.length} / 500`;
+  };
+
+  const validarFormulario = () => {
+    const reglas = [
+      { selector: "#nombre", mensaje: "Ingresa tu nombre (entre 2 y 50 caracteres).", validar: (valor) => valor.length >= 2 && valor.length <= 50 },
+      { selector: "#correo", mensaje: "Ingresa un correo electrónico válido.", validar: (valor, campo) => valor.length <= 254 && campo.validity.valid },
+      { selector: "#asunto", mensaje: "Ingresa un asunto (entre 3 y 50 caracteres).", validar: (valor) => valor.length >= 3 && valor.length <= 50 },
+      { selector: "#mensaje", mensaje: "Ingresa un mensaje (entre 10 y 500 caracteres).", validar: (valor) => valor.length >= 10 && valor.length <= 500 }
+    ];
+    let esValido = true;
+    let mensajeError = "";
+
+    reglas.forEach(({ selector, mensaje, validar }) => {
+      const campo = formularioContacto.querySelector(selector);
+      if (!campo) return;
+      const campoValido = validar(campo.value.trim(), campo);
+      campo.setAttribute("aria-invalid", String(!campoValido));
+      esValido = esValido && campoValido;
+      if (!campoValido && !mensajeError) mensajeError = mensaje;
+    });
+
+    return { esValido, mensajeError };
+  };
+
+  const inicializarTurnstile = () => {
+    if (!window.turnstile) {
+      window.setTimeout(inicializarTurnstile, 100);
+      return;
+    }
+    if (identificadorTurnstile !== null) return;
+
+    identificadorTurnstile = window.turnstile.render(contenedorTurnstile, {
+      sitekey: "0x4AAAAAAEhmG9mzqZ6saREI",
+      theme: "dark",
+      language: "es",
+      action: "contact_form",
+      callback: () => mostrarEstado(""),
+      "expired-callback": () => mostrarEstado("La verificación expiró. Verifica nuevamente.", true)
+    });
+  };
+
+  campoMensaje?.addEventListener("input", actualizarContador);
+  camposFormulario.forEach((campo) => campo.addEventListener("input", () => campo.removeAttribute("aria-invalid")));
+
+  botonSolicitarEvaluacion.addEventListener("click", () => {
+    formularioContacto.reset();
+    camposFormulario.forEach((campo) => campo.removeAttribute("aria-invalid"));
+    actualizarContador();
+    mostrarEstado("");
+    if (identificadorTurnstile !== null && window.turnstile) window.turnstile.reset(identificadorTurnstile);
+    modalContacto.showModal();
+    document.querySelector("#nombre")?.focus();
+  });
+
+  modalContacto.addEventListener("cancel", (evento) => evento.preventDefault());
+  botonCerrarModal.addEventListener("click", () => modalContacto.close());
+
+  formularioContacto.addEventListener("submit", async (evento) => {
+    evento.preventDefault();
+    mostrarEstado("");
+
+    const validacion = validarFormulario();
+    if (!validacion.esValido) {
+      mostrarEstado(validacion.mensajeError, true);
+      formularioContacto.querySelector("[aria-invalid=true]")?.focus();
+      return;
+    }
+
+    if (identificadorTurnstile === null || !window.turnstile) {
+      mostrarEstado("La verificación todavía no está disponible.", true);
+      return;
+    }
+
+    const tokenTurnstile = window.turnstile.getResponse(identificadorTurnstile);
+    if (!tokenTurnstile) {
+      mostrarEstado("Completa la verificación antes de enviar.", true);
+      return;
+    }
+
+    botonEnviarFormulario.disabled = true;
+    mostrarEstado("Enviando formulario...");
+
+    try {
+      const respuesta = await fetch("https://contacto.eci-felipe.workers.dev/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: document.querySelector("#nombre").value.trim(),
+          email: document.querySelector("#correo").value.trim(),
+          subject: document.querySelector("#asunto").value.trim(),
+          message: document.querySelector("#mensaje").value.trim(),
+          website: document.querySelector("#sitio-web").value.trim(),
+          turnstileToken: tokenTurnstile
+        })
+      });
+      const datos = await respuesta.json().catch(() => ({}));
+      if (!respuesta.ok) throw new Error(datos.error || "No fue posible enviar el formulario.");
+
+      formularioContacto.reset();
+      actualizarContador();
+      mostrarEstado("Formulario enviado. Te contactaremos pronto.");
+    } catch (errorEnvio) {
+      mostrarEstado(errorEnvio.message || "No pudimos enviar el formulario. Inténtalo nuevamente.", true);
+    } finally {
+      if (identificadorTurnstile !== null && window.turnstile) window.turnstile.reset(identificadorTurnstile);
+      botonEnviarFormulario.disabled = false;
+    }
+  });
+
+  actualizarContador();
+  inicializarTurnstile();
+})();
