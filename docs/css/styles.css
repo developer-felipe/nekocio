@@ -292,7 +292,7 @@ img, svg {
   filter: drop-shadow(0 10px 18px rgba(217,26,44,.18));
   transform: translate3d(0, 0, 0) rotate(-3deg);
   transform-origin: center;
-  animation: 4.8s ease-in-out infinite flotar-logo-navbar;
+  animation: 4.2s ease-in-out infinite flotar-logo-navbar;
   will-change: transform;
   pointer-events: none;
   user-select: none;
