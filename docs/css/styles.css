@@ -1963,9 +1963,21 @@ img, svg {
   font-weight: 600
 }
 .pie .marca-logo {
-  width: 100px;
-  height: 100x;
-  flex-basis: 100px
+  width: 65px;
+  height: 65px;
+  flex-basis: 65px
+}
+.pie-descripcion {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  line-height: 1.25
+  justify-items: center;
+  text-align: center
+}
+.pie-descripcion strong {
+  color: rgba(247,245,240,.82);
+  font-size: 13px
 }
 .pie-enlaces {
   display: flex;
