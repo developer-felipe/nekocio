@@ -11,8 +11,7 @@
   box-shadow: var(--sombra-profunda)
 }
 .modal-contacto::backdrop {
-  background: rgba(11,11,13,.82);
-  backdrop-filter: blur(4px)
+  background: rgba(11,11,13,.86)
 }
 .modal-contacto__contenido {
   position: relative;
@@ -175,10 +174,16 @@
 @media (max-width: 600px) {
   .modal-contacto {
     width: min(calc(100% - 16px), 760px);
-    max-height: calc(100dvh - 16px)
+    height: calc(100dvh - 16px);
+    max-height: calc(100dvh - 16px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch
   }
   .modal-contacto__contenido {
     padding: 20px
+    contain: none;
+    overflow: visible
   }
   .modal-contacto__cabecera h2 {
     font-size: clamp(36px, 10vw, 46px)
