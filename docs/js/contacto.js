@@ -108,7 +108,6 @@
     if (identificadorTurnstile !== null && window.turnstile) window.turnstile.reset(identificadorTurnstile);
     modalContacto.showModal();
     bloquearScrollPagina();
-    document.querySelector("#nombre")?.focus();
   });
 
   modalContacto.addEventListener("cancel", (evento) => evento.preventDefault());
