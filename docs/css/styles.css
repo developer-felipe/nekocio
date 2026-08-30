@@ -2435,6 +2435,7 @@ img, svg {
 }
 @media (max-width:600px) {
   .hero-copy {
+    margin-top: -25px;
     padding-top: 0
   }
   .hero-bajada {
