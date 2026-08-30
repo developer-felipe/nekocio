@@ -2416,6 +2416,14 @@ img, svg {
     text-align: center
   }
 }
+@media (max-width:600px) {
+  .hero-bajada {
+    margin-top: 12px
+  }
+  .hero-pilares {
+    margin-top: 14px
+  }
+}
 @media (max-width:480px) {
   .hero-escena {
     --escena-scale: 0.72;
