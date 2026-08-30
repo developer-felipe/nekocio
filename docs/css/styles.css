@@ -2246,6 +2246,19 @@ img, svg {
     position: static
   }
 }
+@media (min-width:721px) and (max-width:1120px) {
+  .servicios-grid {
+    align-items: stretch
+  }
+  .servicios-grid > .revelar {
+    display: flex;
+    align-self: stretch
+  }
+  .servicios-grid > .revelar > .servicio-card {
+    width: 100%;
+    flex: 1 1 auto
+  }
+}
 @media (max-width:720px) {
   .seccion {
     padding: 88px 0
@@ -4105,5 +4118,30 @@ img, svg {
   .panel-demo-boton {
     min-height: 38px;
     font-size: 10px
+  }
+}
+@media (min-width:721px) and (hover:none) and (pointer:coarse) and (orientation:landscape) {
+  .hero {
+    min-height: auto;
+    padding-block: 150px 100px
+  }
+  .hero-grid, .control-grid {
+    grid-template-columns: 1fr;
+    gap: 42px
+  }
+  .hero-copy, .control-copy {
+    max-width: 880px;
+    margin-inline: auto
+  }
+  .hero-escena {
+    --escena-scale: .9;
+    width: min(100%, 880px);
+    min-height: 620px;
+    margin-inline: auto
+  }
+  .panel-3d {
+    width: min(100%, 940px);
+    min-height: 680px;
+    margin-inline: auto
   }
 }
